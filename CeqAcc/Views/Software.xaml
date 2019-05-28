@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="CeqAcc.Views.Software"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CeqAcc.Views"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+   mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="700">
+    <Grid Background="White">
+
+
+        <ToolBarTray>
+            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False" Margin="10,0,-0,0">
+
+                <Button Click="Add">
+                    <materialDesign:PackIcon Kind="Add" />
+                </Button>
+                <Separator />
+                <Button Click="Remove">
+                    <materialDesign:PackIcon Kind="RemoveCircle" />
+                </Button>
+                <Separator />
+
+
+                <Button Click="Reload">
+                    <materialDesign:PackIcon Kind="Reload" />
+                </Button>
+                <Separator />
+
+
+
+
+            </ToolBar>
+
+        </ToolBarTray>
+
+
+        <DataGrid x:Name="myDataGrid" VerticalScrollBarVisibility="Visible"  SelectionMode="Single" AutoGenerateColumns="False" Margin="11,54,40,10" Background="#FFFBFBFB" SelectionChanged="myDataGrid_SelectionChanged"  >
+            <!--MouseDoubleClick="myDataGrid_MouseDoubleClick"-->
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="id" Binding="{Binding SoftwareID}" Visibility="Hidden"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ім'я водія" Binding="{Binding SoftwareName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Назва автомобіля" Binding="{Binding sfManufacturer}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Колір" Binding="{Binding SoftwarePrice}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Державний номер" Binding="{Binding SoftwareDesc}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Технічний стан" Binding="{Binding SoftwareStan}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+    </Grid>
+</UserControl>

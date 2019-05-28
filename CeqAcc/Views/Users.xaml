@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="CeqAcc.Views.Users"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CeqAcc.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="700">
+    <Grid Background="White">
+
+
+        <ToolBarTray>
+            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False" Margin="10,0,-0,0">
+                
+                <Button Click="Add">
+                    <materialDesign:PackIcon Kind="PersonAddOutline" />
+                </Button>
+                <Separator />
+                <Button Click="Remove">
+                    <materialDesign:PackIcon Kind="AccountRemoveOutline" />
+                </Button>
+                <Separator />
+                <Button Click="Reload">
+                    <materialDesign:PackIcon Kind="Reload" />
+                </Button>
+               
+            
+            
+            </ToolBar>
+        </ToolBarTray>
+        <DataGrid x:Name="myDataGrid" VerticalScrollBarVisibility="Visible" IsReadOnly="True"  SelectionMode="Single" AutoGenerateColumns="False" Margin="11,54,85,10" Background="#FFFBFBFB" MouseDoubleClick="myDataGrid_MouseDoubleClick" SelectedCellsChanged="myDataGrid_SelectionChanged" SelectionChanged="myDataGrid_SelectionChanged_1">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="id" Binding="{Binding UserID}" Visibility="Hidden"></DataGridTextColumn>
+                <DataGridTextColumn Header="Нікнейм" Binding="{Binding UserName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Повне ім'я" Binding="{Binding UserFullName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Мобільний телефон" Binding="{Binding UserEmail}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Роль користувача" Binding="{Binding userRole}">
+
+                </DataGridTextColumn>
+                
+                
+            </DataGrid.Columns>
+        </DataGrid>
+      
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,70 @@
+﻿<Window x:Class="CeqAcc.Views.viewObject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CeqAcc.Views"
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        mc:Ignorable="d" Height="800" Width="800" WindowStyle="ToolWindow">
+    <Grid Name="GridStyle" Margin="0,-1,0,1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0.01*"  ></RowDefinition>
+            <RowDefinition Name="rowedit"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.85*" ></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <materialDesign:Chip Grid.Column="1" Grid.Row="0"
+          Content="{Binding userName}"
+          Icon="{Binding iconName}" IconBackground="#455a64"   Margin="252,10,0,252" Height="Auto" />
+        <Label Content="Ім'я об'єкту:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,18,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <TextBox  Grid.Column="1" Name="objectNameText" Grid.Row="0" HorizontalAlignment="Left" Height="28" Margin="25,18,0,0" TextWrapping="Wrap" Text="{Binding objectName}" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Стан:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,73,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <Label Content="Тип:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,128,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <ComboBox x:Name="StatusBox" Grid.Column="1" SelectedValue="{Binding objectStatus}" IsSynchronizedWithCurrentItem="True"  HorizontalAlignment="Left" Margin="25,73,0,0" VerticalAlignment="Top" Width="150" />
+        <Label Content="Інвентарний номер:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,183,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <TextBox Name="objectInventaryText" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="28" Margin="25,183,0,0" TextWrapping="Wrap" Text="{Binding objectInventary}" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Серійний номер: "  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="24,238,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <DatePicker Name="DateText" Grid.Column="3" Grid.Row="0" SelectedDate="{Binding objectWarrantlyEndDate}"   materialDesign:HintAssist.Hint="Введіть дату"  Margin="25,128,30,225"  Width="150" Height="30"
+                    DisplayDateStart="1/01/1919" DisplayDateEnd="12/31/2119" />
+
+        <Label Content="Ціна:"  Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Margin="25,18,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <TextBox  Name="objectPriceText" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left" Height="28" Margin="25,18,0,0" TextWrapping="Wrap" Text="{Binding objectPrice}" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Гарантія:"  Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Margin="25,73,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <Label Content="Кінець гарантіїї:"  Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Margin="25,128,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <ComboBox x:Name="TypeBox" Grid.Column="1"  SelectedValue="{Binding objectType}" IsSynchronizedWithCurrentItem="True"   HorizontalAlignment="Left" Margin="25,128,0,0" VerticalAlignment="Top" Width="150" />
+        <Label Content="Нотатки:"  Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Margin="25,238,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <Label Content="Активація:"  Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Margin="25,183,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <CheckBox Content="Деактивувати" Name="activate" Grid.Column="3" HorizontalAlignment="Left" Margin="25,183,0,0" VerticalAlignment="Top" Width="150" Height="25"/>
+        <TextBox TextWrapping="Wrap" Name="objectNotesText" VerticalAlignment="Stretch" MinWidth="100" AcceptsReturn="True"
+    VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="Нотатки"
+   Height="50" Grid.Row="0" Grid.Column="3" Margin="25,226,30,107" Text="{Binding objectNotes}">
+           
+        </TextBox>
+        <DataGrid x:Name="myDataGrid"   Grid.Row="2" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Visible" IsReadOnly="True"  SelectionMode="Single" AutoGenerateColumns="False" Margin="10,45,10,27" Background="#FFFBFBFB" Visibility="Visible" >
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="id" Binding="{Binding ObjectID}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Ім'я ПЗ" Binding="{Binding softwareNameTable}"/>
+                <DataGridTextColumn Header="Виробник" Binding="{Binding softwareManufacturerTable}"/>
+                <DataGridTextColumn Header="Час установки" Binding="{Binding DataTime}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Content="Установленні програми: " Name="labelObjects" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16" Grid.ColumnSpan="2" Width="292"/>
+        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="Black" />
+        <Button Content="Видалити" x:Name="Command_Table" Grid.Column="3" HorizontalAlignment="Left" Margin="25,181,0,0" Background="#455a64" BorderBrush="#455a64" VerticalAlignment="Top" Width="150" Grid.Row="2"/>
+        <TextBox x:Name="objectSerialNumberText" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="28" Margin="25,238,0,0" TextWrapping="Wrap" Text="{Binding objectSerialNumber}" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Користувач: "  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,293,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16" Height="28"/>
+        <ComboBox x:Name="warrantlyBox" Grid.Column="3" SelectedValue="{Binding objectWarrantly}" IsSynchronizedWithCurrentItem="True"  HorizontalAlignment="Left" Margin="25,73,0,0" VerticalAlignment="Top" Width="150" />
+        <ComboBox x:Name="usersBox" Grid.Column="1"  SelectedValue="{Binding objectUser}" IsSynchronizedWithCurrentItem="True"   HorizontalAlignment="Left" Margin="25,293,0,0" VerticalAlignment="Top" Width="150" />
+
+
+
+    </Grid>
+</Window>
