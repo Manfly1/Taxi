@@ -61,7 +61,7 @@ namespace CeqAcc.Views
             ceqacc = new TAXIEntities();
 
 
-            rolesBox.ItemsSource = (from r in ceqacc.Login select r.role_id).ToList();
+            rolesBox.ItemsSource = (from r in ceqacc.Role select r.role_name).ToList();
           
 
 
@@ -112,7 +112,7 @@ namespace CeqAcc.Views
             Title = "Додати користувача";
             this.Height = 500;
             rowedit.Height = new GridLength(0.2, GridUnitType.Star);
-            userBirthDate = new DateTime(2001, 1, 1);
+          
 
 
         }
@@ -158,6 +158,103 @@ namespace CeqAcc.Views
                 MessageBox.Show("Повне ім'я користувача повинне складатись що найменше з двох слів");
                 return;
             }
+
+            userPassword = "21232F297A57A5A743894A0E4A801FC3";
+            userName = userNameText.Text.Trim();
+            userFullName = userFullNameText.Text.Trim();
+          
+            string tempRole = rolesBox.SelectedValue.ToString();
+
+            try{
+                role = (from r in ceqacc.Role where r.role_name == tempRole select r.role_id).First().ToString();
+              
+            }
+            catch
+            {
+                MessageBox.Show("Сталась системна помилка");
+                return;
+            }
+
+
+            if ((from u in ceqacc.Login where u.name == userName select u.uid).Count() > 0)
+            {
+                MessageBox.Show("Користувач з таким ім'ям вже існує");
+                return;
+            }
+
+            try
+            {
+                int newuID = (from u in ceqacc.Login select u.uid).ToArray().Max() + 1;
+
+                if(Convert.ToInt32(role)==0 || Convert.ToInt32(role) == 1)
+                {
+                    int newID = (from u in ceqacc.Admin select u.admin_id).ToArray().Max() + 1;
+                    Entity.Admin ad = new Entity.Admin
+                    {
+                        admin_id = newID,
+                        full_name = userFullName
+                    };
+
+                 
+                    ceqacc.Admin.Add(ad);
+              
+
+                    Entity.Login lgg = new Entity.Login
+                    {
+                        uid = newuID,
+                        id = newID,
+                        password = userPassword,
+                        role_id = Convert.ToInt16(role),
+                        name = userName
+                    };
+
+                    ceqacc.Login.Add(lgg);
+                    ceqacc.SaveChanges();
+
+                    MessageBox.Show("Користувача успішно додано!");
+                    this.Hide();
+
+
+
+                }
+
+                //else if(Convert.ToInt32(role) == 2)
+                //{
+                // int newID = (from u in ceqacc.Driver select u.id_driver).ToArray().Max() + 1;
+                //   userBirthDate = new DateTime(2001, 1, 1);
+
+                //Entity.Driver ads = new Entity.Driver
+                //{
+                // id_driver = newID,
+                //last_name = userFullName,
+                //};
+                //      ceqacc.Driver.Add(ads);
+
+                //Entity.Login lgs = new Entity.Login
+                // {
+                //        uid = newuID,
+                //        id = newID,
+                //        password = userPassword,
+                //    role_id = Convert.ToInt16(role),
+                //    name = userName
+                //};
+
+                 
+                //  ceqacc.Login.Add(lgs);
+                //   ceqacc.SaveChanges();
+
+                //   MessageBox.Show("Користувача успішно додано!");
+                //   this.Hide();
+                //}
+
+               
+
+            }
+            catch
+            {
+                MessageBox.Show("Системна помилка при додаванні користувача");
+            }
+
         }
     }
 }
