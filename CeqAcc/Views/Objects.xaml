@@ -43,13 +43,12 @@
         <DataGrid x:Name="myDataGrid" VerticalScrollBarVisibility="Visible" IsReadOnly="True"  SelectionMode="Single" AutoGenerateColumns="False" Margin="11,54,40,10" Background="#FFFBFBFB" MouseDoubleClick="myDataGrid_MouseDoubleClick">
             <DataGrid.Columns >
                 <DataGridTextColumn Header="id" Binding="{Binding ObjectID}" Visibility="Hidden"></DataGridTextColumn>
-                <DataGridTextColumn Header="Ім'я" Binding="{Binding ObjectName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Тип" Binding="{Binding objectType}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Інвертарний номер" Binding="{Binding InventoryNumber}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Статус" Binding="{Binding objectStatus}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Відповідальний користувач" Binding="{Binding objectUser}">
+                <DataGridTextColumn Header="Код замовлення" Binding="{Binding code_request}"></DataGridTextColumn>
+              
+                <DataGridTextColumn Header="Дата замовлення" Binding="{Binding date}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дисконтна карта" Binding="{Binding Tarif}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Статус" Binding="{Binding status}"></DataGridTextColumn>
 
-                </DataGridTextColumn>
 
 
             </DataGrid.Columns>

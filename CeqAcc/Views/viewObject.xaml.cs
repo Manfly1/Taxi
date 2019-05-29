@@ -87,7 +87,7 @@ namespace CeqAcc.Views
 
             string[] words = obj.ToString().Split(',');
             globalID = Convert.ToInt32(Regex.Match(words[0], @"\d+").Value);
-            var objectInfo = ceqacc.Login.Where(x => x.uid == globalID).First();
+            var objectInfo = ceqacc.Request.Where(x => x.code_request == globalID).First();
             if (objectInfo == null)
             {
                 MessageBox.Show("Помилка у вибірці!");

@@ -23,11 +23,11 @@
         <materialDesign:Chip Grid.Column="1" Grid.Row="0"
           Content="{Binding userName}"
           Icon="{Binding iconName}" IconBackground="#455a64"   Margin="252,10,0,252" Height="Auto" />
-        <Label Content="Ім'я замовлення:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,18,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <Label Content="Код замовлення:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,18,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
         <TextBox  Grid.Column="1" Name="objectNameText" Grid.Row="0" HorizontalAlignment="Left" Height="28" Margin="25,18,0,0" TextWrapping="Wrap" Text="{Binding objectName}" VerticalAlignment="Top" Width="150"/>
         <Label Content="Статус:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,73,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
         <Label Content="Тариф:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,128,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16" RenderTransformOrigin="0.073,-1.472"/>
-        <ComboBox x:Name="StatusBox" Grid.Column="1" SelectedValue="{Binding objectStatus}" IsSynchronizedWithCurrentItem="True"  HorizontalAlignment="Left" Margin="25,73,0,0" VerticalAlignment="Top" Width="150" />
+        <ComboBox x:Name="StatusBox" Grid.Column="1" SelectedValue="{Binding status}" IsSynchronizedWithCurrentItem="True"  HorizontalAlignment="Left" Margin="25,73,0,0" VerticalAlignment="Top" Width="150" />
         <Label Content="Дисконтна карта:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,183,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
         <TextBox Name="objectInventaryText" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="28" Margin="25,183,0,0" TextWrapping="Wrap" Text="{Binding objectInventary}" VerticalAlignment="Top" Width="150"/>
         <DatePicker Name="DateText" Grid.Column="1" Grid.Row="0" SelectedDate="{Binding objectWarrantlyEndDate}"   materialDesign:HintAssist.Hint="Введіть дату"  Margin="21.8,294,34.6,60"  Width="150" Height="30"
@@ -38,7 +38,7 @@
         <Label Content="Дата замовлення:" Grid.Row="0" HorizontalAlignment="Left" Margin="20,298,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
         <ComboBox x:Name="TypeBox" Grid.Column="1"  SelectedValue="{Binding objectType}" IsSynchronizedWithCurrentItem="True"   HorizontalAlignment="Left" Margin="25,128,0,0" VerticalAlignment="Top" Width="150" />
         <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="Black" />
-        <Button Content="Видалити" x:Name="Command_Table" Grid.Column="3" HorizontalAlignment="Left" Margin="43,345,0,0" Background="#455a64" BorderBrush="#455a64" VerticalAlignment="Top" Width="150"/>
+        <Button Content="Додати" x:Name="Command_Table" Grid.Column="2" HorizontalAlignment="Left" Margin="25.4,338,0,0" Background="#455a64" BorderBrush="#455a64" VerticalAlignment="Top" Width="150"/>
 
 
 

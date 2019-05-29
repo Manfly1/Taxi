@@ -27,6 +27,8 @@ namespace CeqAcc.Views
         private string objectType { get; set; }
         private string objectStatus { get; set; }
         private string objectUser { get; set; }
+        private string Tarif { get; set; }
+   
         public Objects(string logins)
         {
             InitializeComponent();
@@ -35,13 +37,14 @@ namespace CeqAcc.Views
 
             try
             {
-                myDataGrid.ItemsSource = (from obj in ceqacc.Login
+                myDataGrid.ItemsSource = (from obj in ceqacc.Request
                                           select new
                                           {
-                                              obj.uid,
-                                              obj.id,
-                                              
-                                              obj.name
+                                              obj.code_request,
+                                              obj.status,
+                                              Tarif=obj.Discount_card.type_discount,
+                                              obj.date,
+                                           
                                               
                                           }).ToList();
             }
@@ -75,12 +78,12 @@ namespace CeqAcc.Views
                     int deleteObjectID = Convert.ToInt32(Regex.Match(words[0], @"\d+").Value);
 
 
-                    var query = (from u in ceqacc.Login
-                                 where u.uid == deleteObjectID
+                    var query = (from u in ceqacc.Request
+                                 where u.code_request == deleteObjectID
                                  select u).SingleOrDefault();
 
 
-                    ceqacc.Login.Remove(query);
+                    ceqacc.Request.Remove(query);
                     ceqacc.SaveChanges();
 
                     Reload(sender, e);
