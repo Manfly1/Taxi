@@ -136,7 +136,7 @@ namespace CeqAcc.Views
                     var query = (from u in ceqacc.Login
                                  where u.uid == deleteUserID
                                  select u).SingleOrDefault();
-
+                    
                     
                     ceqacc.Login.Remove(query);
                     ceqacc.SaveChanges();

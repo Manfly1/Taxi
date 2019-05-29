@@ -6,11 +6,15 @@
              xmlns:local="clr-namespace:CeqAcc.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              mc:Ignorable="d" 
-             d:DesignHeight="440" Width="671.5">
+             d:DesignHeight="380" Width="700">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="99*"/>
+            <RowDefinition Height="91*"/>
+        </Grid.RowDefinitions>
 
 
-        <ToolBarTray Margin="0,0,10,0">
+        <ToolBarTray Margin="0,0,10,0" Grid.RowSpan="2">
             <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False" Margin="10,0,-0,0">
 
                 <Button Click="Add">
@@ -31,7 +35,7 @@
         </ToolBarTray>
 
 
-        <TabControl x:Name="users" Margin="0,53,0,0" Background="{x:Null}" HorizontalAlignment="Left" Width="662">
+        <TabControl x:Name="users" Margin="0,53,0,0" Background="{x:Null}" HorizontalAlignment="Left" Width="690" Grid.RowSpan="2">
             <TabItem x:Name="admins">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">

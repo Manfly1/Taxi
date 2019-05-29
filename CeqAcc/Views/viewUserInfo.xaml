@@ -31,7 +31,8 @@
         <Label Content="Повне ім'я:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,183,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
         <TextBox Name="userFullNameText" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="28" Margin="25,183,0,0" TextWrapping="Wrap" Text="{Binding userFullName}" VerticalAlignment="Top" Width="150"/>
         <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="Black" />
-        <Button Content="{Binding commandName}" x:Name="Command" HorizontalAlignment="Left" Margin="24,265,0,0" Background="#455a64" BorderBrush="#455a64" VerticalAlignment="Top" Width="150" Click="Command_Click"/>
+        <Button Content="Створити" x:Name="Command" HorizontalAlignment="Left" Margin="24,265,0,0" Background="#455a64" BorderBrush="#455a64" VerticalAlignment="Top" Width="150" Click="Command_Click"/>
+        <Button Content="Змінити"  HorizontalAlignment="Left" Margin="25,73,0,0" Background="#455a64" BorderBrush="#455a64" VerticalAlignment="Top" Width="150" Grid.Column="1" />
 
 
 
