@@ -31,6 +31,7 @@ namespace CeqAcc.Views
         
 
         public string userRole { get; set; }
+        public string fullName { get; set; }
         public int countObjects { get; set; }
         public Users(string logins)
         {
@@ -38,16 +39,18 @@ namespace CeqAcc.Views
             ceqacc = new TAXIEntities();
             login = logins;
 
-            try { 
-            myDataGrid.ItemsSource = (from user in ceqacc.Login
-                                      select new 
-                                      {
-                                          user.uid,
-                                          user.id,
-                                           user.name,
-                                           user.role
-                                      
-                                      }).ToList();
+            try {
+                var query = (from user in ceqacc.Login
+                             select new
+                             {
+                                 user.uid,
+                                 user.name,
+                                 fullName = user.Admin.full_name,
+                                 user.role
+                             }).ToList();
+
+
+                myDataGrid.ItemsSource = query;
             }
             catch 
             {

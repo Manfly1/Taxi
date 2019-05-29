@@ -36,12 +36,12 @@
         </ToolBarTray>
 
 
-        <DataGrid x:Name="myDataGrid" VerticalScrollBarVisibility="Visible"  SelectionMode="Single" AutoGenerateColumns="False" Margin="11,54,40,10" Background="#FFFBFBFB"  >
+        <DataGrid x:Name="myDataGrid" VerticalScrollBarVisibility="Visible"  SelectionMode="Single" AutoGenerateColumns="False" Margin="11,54,40,10" Background="#FFFBFBFB" SelectionChanged="myDataGrid_SelectionChanged"  >
             <!--MouseDoubleClick="myDataGrid_MouseDoubleClick"-->
             <DataGrid.Columns >
                 <DataGridTextColumn Header="id" Binding="{Binding PurchaseID}" Visibility="Hidden"></DataGridTextColumn>
-                <DataGridTextColumn Header="Найменування" Binding="{Binding PurchaseName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Ціна" Binding="{Binding PurchasePrice}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Найменування" Binding="{Binding name_param}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ціна" Binding="{Binding price}"></DataGridTextColumn>
              
 
             </DataGrid.Columns>

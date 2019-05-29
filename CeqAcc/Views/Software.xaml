@@ -39,12 +39,11 @@
         <DataGrid x:Name="myDataGrid" VerticalScrollBarVisibility="Visible"  SelectionMode="Single" AutoGenerateColumns="False" Margin="11,54,40,10" Background="#FFFBFBFB" SelectionChanged="myDataGrid_SelectionChanged"  >
             <!--MouseDoubleClick="myDataGrid_MouseDoubleClick"-->
             <DataGrid.Columns >
-                <DataGridTextColumn Header="id" Binding="{Binding SoftwareID}" Visibility="Hidden"></DataGridTextColumn>
-                <DataGridTextColumn Header="Ім'я водія" Binding="{Binding SoftwareName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Назва автомобіля" Binding="{Binding sfManufacturer}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Колір" Binding="{Binding SoftwarePrice}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Державний номер" Binding="{Binding SoftwareDesc}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Технічний стан" Binding="{Binding SoftwareStan}"></DataGridTextColumn>
+                <DataGridTextColumn Header="id" Binding="{Binding cod_car}" Visibility="Hidden"></DataGridTextColumn>
+                <DataGridTextColumn Header="Модель" Binding="{Binding model}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Колір" Binding="{Binding color}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Державний номер" Binding="{Binding state_number}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Технічний стан" Binding="{Binding technical_condition}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 

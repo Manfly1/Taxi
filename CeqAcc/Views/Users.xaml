@@ -31,11 +31,10 @@
         </ToolBarTray>
         <DataGrid x:Name="myDataGrid" VerticalScrollBarVisibility="Visible" IsReadOnly="True"  SelectionMode="Single" AutoGenerateColumns="False" Margin="11,54,85,10" Background="#FFFBFBFB" MouseDoubleClick="myDataGrid_MouseDoubleClick" SelectedCellsChanged="myDataGrid_SelectionChanged" SelectionChanged="myDataGrid_SelectionChanged_1">
             <DataGrid.Columns >
-                <DataGridTextColumn Header="id" Binding="{Binding UserID}" Visibility="Hidden"></DataGridTextColumn>
-                <DataGridTextColumn Header="Нікнейм" Binding="{Binding UserName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Повне ім'я" Binding="{Binding UserFullName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Мобільний телефон" Binding="{Binding UserEmail}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Роль користувача" Binding="{Binding userRole}">
+                <DataGridTextColumn Header="id" Binding="{Binding uid}" Visibility="Hidden"></DataGridTextColumn>
+                <DataGridTextColumn Header="Нікнейм" Binding="{Binding name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Повне ім'я" Binding="{Binding fullName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Роль користувача" Binding="{Binding role}">
 
                 </DataGridTextColumn>
                 
