@@ -22,8 +22,8 @@ namespace CeqAcc.Controller
 
         public bool Create_Window(string Userlogin)
         {
-            var role = ceqacc.Login.Where(x => x.name == Userlogin);
-            switch (role.First().role)
+            var role_id = ceqacc.Login.Where(x => x.name == Userlogin);
+            switch (role_id.First().role)
             {
 
                 case 0: //права адміністратора

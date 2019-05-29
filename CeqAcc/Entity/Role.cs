@@ -12,16 +12,18 @@ namespace CeqAcc.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Login
+    public partial class Role
     {
-        public int uid { get; set; }
-        public int id { get; set; }
-        public string password { get; set; }
-        public int role_id { get; set; }
-        public string name { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Role()
+        {
+            this.Login = new HashSet<Login>();
+        }
     
-        public virtual Admin Admin { get; set; }
-        public virtual Driver Driver { get; set; }
-        public virtual Role Role { get; set; }
+        public int role_id { get; set; }
+        public string role_name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Login> Login { get; set; }
     }
 }
