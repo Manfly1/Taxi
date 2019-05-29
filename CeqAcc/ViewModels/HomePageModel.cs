@@ -30,15 +30,15 @@ namespace CeqAcc.ViewModels
 
             var userInfo = ceqacc.Login.Where(x => x.name == login).First();
 
-            if (userInfo.role == 0 || userInfo.role == 1)
+            if (userInfo.role_id == 0 || userInfo.role_id == 1)
             {
                 var userInfoTable = ceqacc.Admin.Where(x => x.admin_id == userInfo.id).First();
                 this.fullname = userInfoTable.full_name;
 
-                if (userInfo.role == 0) this.role = "Роль: Адміністратор";
-                else if (userInfo.role == 1) this.role = "Роль: Диспетчер";
+                if (userInfo.role_id == 0) this.role = "Роль: Адміністратор";
+                else if (userInfo.role_id == 1) this.role = "Роль: Диспетчер";
             }
-            else if(userInfo.role == 2) //водій
+            else if(userInfo.role_id == 2) //водій
             {
                 var userInfoTable = ceqacc.Driver.Where(x => x.id_driver == userInfo.id).First();
                 this.fullname = userInfoTable.last_name;

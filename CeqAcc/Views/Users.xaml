@@ -6,13 +6,13 @@
              xmlns:local="clr-namespace:CeqAcc.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              mc:Ignorable="d" 
-             d:DesignHeight="350" d:DesignWidth="700">
-    <Grid Background="White">
+             d:DesignHeight="440" Width="671.5">
+    <Grid>
 
 
-        <ToolBarTray>
+        <ToolBarTray Margin="0,0,10,0">
             <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False" Margin="10,0,-0,0">
-                
+
                 <Button Click="Add">
                     <materialDesign:PackIcon Kind="PersonAddOutline" />
                 </Button>
@@ -24,24 +24,62 @@
                 <Button Click="Reload">
                     <materialDesign:PackIcon Kind="Reload" />
                 </Button>
-               
-            
-            
+
+
+
             </ToolBar>
         </ToolBarTray>
-        <DataGrid x:Name="myDataGrid" VerticalScrollBarVisibility="Visible" IsReadOnly="True"  SelectionMode="Single" AutoGenerateColumns="False" Margin="11,54,85,10" Background="#FFFBFBFB" MouseDoubleClick="myDataGrid_MouseDoubleClick" SelectedCellsChanged="myDataGrid_SelectionChanged" SelectionChanged="myDataGrid_SelectionChanged_1">
-            <DataGrid.Columns >
-                <DataGridTextColumn Header="id" Binding="{Binding uid}" Visibility="Hidden"></DataGridTextColumn>
-                <DataGridTextColumn Header="Нікнейм" Binding="{Binding name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Повне ім'я" Binding="{Binding fullName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Роль користувача" Binding="{Binding role}">
 
-                </DataGridTextColumn>
-                
-                
-            </DataGrid.Columns>
-        </DataGrid>
-      
+
+        <TabControl x:Name="users" Margin="0,53,0,0" Background="{x:Null}" HorizontalAlignment="Left" Width="662">
+            <TabItem x:Name="admins">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock Margin="3">Адміністрація</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <DataGrid x:Name="myDataGrid" VerticalScrollBarVisibility="Visible" IsReadOnly="True"  SelectionMode="Single" AutoGenerateColumns="False" Margin="0,3,138,0" Background="#FFFBFBFB" MouseDoubleClick="myDataGrid_MouseDoubleClick" SelectedCellsChanged="myDataGrid_SelectionChanged" SelectionChanged="myDataGrid_SelectionChanged_1" Height="275" VerticalAlignment="Top">
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Header="id" Binding="{Binding uid}" Visibility="Hidden"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Нікнейм" Binding="{Binding name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Повне ім'я" Binding="{Binding fullName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Роль користувача" Binding="{Binding userRole}">
+
+                            </DataGridTextColumn>
+
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="simple">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock Margin="3">Користувачі</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <DataGrid x:Name="myDataGrid2" VerticalScrollBarVisibility="Visible" IsReadOnly="True"  SelectionMode="Single" AutoGenerateColumns="False" Margin="0,3,138,0" Background="#FFFBFBFB" MouseDoubleClick="myDataGrid_MouseDoubleClick" SelectedCellsChanged="myDataGrid_SelectionChanged" SelectionChanged="myDataGrid_SelectionChanged_1" Height="275" VerticalAlignment="Top">
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Header="id" Binding="{Binding uid}" Visibility="Hidden"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Нікнейм" Binding="{Binding name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Повне ім'я" Binding="{Binding fullName}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Роль користувача" Binding="{Binding userRole}">
+
+                            </DataGridTextColumn>
+
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+
+
+
 
 
     </Grid>
