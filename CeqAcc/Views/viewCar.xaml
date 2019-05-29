@@ -1,0 +1,42 @@
+﻿<Window x:Class="CeqAcc.Views.viewCar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CeqAcc.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        mc:Ignorable="d" Height="484" Width="800" WindowStyle="ToolWindow">
+    <Grid Name="GridStyle" Margin="0,-1,-0.4,-187.8" RenderTransformOrigin="0.485,0.745">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0.01*"  ></RowDefinition>
+            <RowDefinition Name="rowedit"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.85*" ></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <materialDesign:Chip Grid.Column="1" Grid.Row="0"
+          Content="{Binding userName}"
+          Icon="{Binding iconName}" IconBackground="#455a64"   Margin="252,10,0,252" Height="Auto" />
+        <Label Content="Модель:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,18,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <TextBox  Grid.Column="1" Name="userNameText" Grid.Row="0" HorizontalAlignment="Left" Height="28" Margin="25,18,0,0" TextWrapping="Wrap" Text="{Binding model}" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Колір:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,73,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <Label Content="Технічний стан:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,128,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <ComboBox x:Name="rolesBox" Grid.Column="1" SelectedValue="{Binding technical_condition}" IsSynchronizedWithCurrentItem="True"  HorizontalAlignment="Left" Margin="25,128,0,0" VerticalAlignment="Top" Width="150"  />
+        <Label Content="Державний номер:"  Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="25,183,0,0" VerticalAlignment="Top" FontFamily="Impact" FontSize="16"/>
+        <TextBox Name="userFullNameText" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="28" Margin="25,183,0,0" TextWrapping="Wrap" Text="{Binding state_number}" VerticalAlignment="Top" Width="150"/>
+        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="Black" />
+        <Button Content="{Binding commandName}" x:Name="Command" HorizontalAlignment="Left" Margin="24,265,0,0" Background="#455a64" BorderBrush="#455a64" VerticalAlignment="Top" Width="150" Click="Command_Click"/>
+        <TextBox x:Name="userFullNameText_Copy" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="28" Margin="22.8,18,0,0" TextWrapping="Wrap" Text="{Binding model}" VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="userFullNameText_Copy1" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="28" Margin="22.8,69,0,0" TextWrapping="Wrap" Text="{Binding color}" VerticalAlignment="Top" Width="150"/>
+
+
+
+    </Grid>
+
+</Window>

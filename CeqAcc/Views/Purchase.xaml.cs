@@ -34,27 +34,25 @@ namespace CeqAcc.Views
 
             try
             {
-                
-                var rn = (from t3 in ceqacc.Login
-                          from t2 in t3.password
-                          select new
-                          {
-                            
-                          }).ToList();
-
-                myDataGrid.ItemsSource = rn;
+                myDataGrid.ItemsSource = (from user in ceqacc.Tariffs
+                    select new
+                    {
+                        user.name_param,
+                        user.price
+                       
+                    }).ToList();
             }
             catch
             {
                 MessageBox.Show("Сталась помилка в роботі із базою, спробуйте ще раз. ");
                 return;
             }
+       
 
-            this.DataContext = this;
+          
         }
         private void Add(object sender, RoutedEventArgs e)
         {
-
 
 
         }
@@ -65,6 +63,11 @@ namespace CeqAcc.Views
         }
 
         private void Reload(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void myDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

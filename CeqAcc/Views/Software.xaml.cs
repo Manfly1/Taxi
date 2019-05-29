@@ -25,12 +25,14 @@ namespace CeqAcc.Views
         public TAXIEntities ceqacc;
         private string login { get; set; }
         public string type { get; set; }
+        public string model { get; set; }
         public string objects { get; set; }
         public string sfManufacturer { get; set; }
         public Software(string logins)
         {
             InitializeComponent();
             this.login = logins;
+            
             ceqacc = new TAXIEntities();
 
             try
@@ -39,16 +41,13 @@ namespace CeqAcc.Views
 
                                           select new
                                           {
+                                              model=obj.Brand.model_car,
                                               obj.state_number,
                                               obj.cod_car,
-                                           
                                               obj.color,
                                               obj.graduation_year,
                                               obj.technical_condition
-
-
-
-
+                                              
                                           }).ToList();
             }
             catch
@@ -61,6 +60,11 @@ namespace CeqAcc.Views
         }
         private void Add(object sender, RoutedEventArgs e)
         {
+            object obj = myDataGrid.SelectedItem;
+            viewCar u = new viewCar(obj, "new", login);
+            u.Show();
+            u.Topmost = true;
+            u.Activate();
 
         }
 

@@ -65,7 +65,7 @@ namespace CeqAcc.Views
             warrantyList.Add("Ні");
 
 
-            warrantlyBox.ItemsSource = warrantyList;
+           
 
 
             if (operation == "edit")
@@ -97,10 +97,7 @@ namespace CeqAcc.Views
 
 
 
-            if (objectDead != null && objectDead == true)
-            {
-                activate.IsChecked = true;
-            }
+           
 
 
 
@@ -113,8 +110,7 @@ namespace CeqAcc.Views
             commandName = "Додати";
             Title = "Додати користувача";
 
-            labelObjects.Content = "";
-            myDataGrid.Visibility = Visibility.Hidden;
+          
             this.Height = 500;
             rowedit.Height = new GridLength(0.2, GridUnitType.Star);
         }
@@ -149,11 +145,7 @@ namespace CeqAcc.Views
                 return;
             }
 
-            if (objectPriceText.Text.Trim() == "")
-            {
-                MessageBox.Show("Заповніть ціну об'єкта");
-                return;
-            }
+          
         }
     }
 }

@@ -24,7 +24,7 @@ namespace CeqAcc.Views
     /// <summary>
     /// Логика взаимодействия для viewUserInfo.xaml
     /// </summary>
-    public partial class viewUserInfo : Window
+    public partial class viewCar : Window
     {
         public TAXIEntities ceqacc;
         private object obj { get; set; }
@@ -50,7 +50,7 @@ namespace CeqAcc.Views
         public string commandName { get; set; }
 
 
-        public viewUserInfo(object obj, string operation, string admin)
+        public viewCar(object obj, string operation, string admin)
         {
             InitializeComponent();
             this.obj = obj;
@@ -61,8 +61,8 @@ namespace CeqAcc.Views
             ceqacc = new TAXIEntities();
 
 
-            rolesBox.ItemsSource = (from r in ceqacc.Login select r.role_id).ToList();
-          
+            rolesBox.ItemsSource = (from r in ceqacc.Car select r.technical_condition).ToList();
+
 
 
 
@@ -94,15 +94,15 @@ namespace CeqAcc.Views
 
             }
             var resultObject = (from o in ceqacc.Request
-                where o.code_request == userInfo.uid
-                select new
-                {
-                    o.date,
-                    o.id_street_pos,
-                    o.id_area_pos,
-                    o.status
-           
-                }).ToList();
+                                where o.code_request == userInfo.uid
+                                select new
+                                {
+                                    o.date,
+                                    o.id_street_pos,
+                                    o.id_area_pos,
+                                    o.status
+
+                                }).ToList();
 
         }
 
@@ -123,7 +123,7 @@ namespace CeqAcc.Views
         {
             if (operation == "edit")
             {
-               
+
             }
             else if (operation == "new")
             {
@@ -161,6 +161,6 @@ namespace CeqAcc.Views
         }
     }
 }
-           
-            
+
+
 
