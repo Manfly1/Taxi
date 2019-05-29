@@ -31,27 +31,60 @@ namespace CeqAcc.Views
         
 
         public string userRole { get; set; }
+        public string fullName { get; set; }
+       
         public int countObjects { get; set; }
+        
+
         public Users(string logins)
         {
             InitializeComponent();
             ceqacc = new TAXIEntities();
             login = logins;
 
-            try { 
-            myDataGrid.ItemsSource = (from user in ceqacc.Login
-                                      select new 
-                                      {
-                                          user.uid,
-                                          user.id,
-                                           user.name,
-                                           user.role
-                                      
-                                      }).ToList();
+         
+          
+
+            try {
+                
+
+                var query = (from user in ceqacc.Login
+                             where user.role_id != 2
+                             select new
+                             {
+                                 user.uid,
+                                 user.name,
+                                 fullName = user.Admin.full_name,
+                                 userRole = user.Role.role_name
+
+                             }
+                             ).ToList();
+               
+
+
+                myDataGrid.ItemsSource = query;
+
+
+                var query2 = (from user in ceqacc.Login
+                             where user.role_id == 2
+                             select new
+                             {
+                                 user.uid,
+                                 user.name,
+                                 fullName = user.Driver.last_name,
+                                 userRole = user.Role.role_name
+
+                             }
+                         ).ToList();
+
+
+
+                myDataGrid2.ItemsSource = query2;
+
             }
             catch 
             {
-                MessageBox.Show("Сталась помилка v роботі із базою, спробуйте ще раз. ");
+                MessageBox.Show("Сталась помилка в роботі із базою, спробуйте ще раз. ");
                 return;
             }
             this.DataContext = this;
@@ -122,20 +155,48 @@ namespace CeqAcc.Views
 
             try
             {
-                myDataGrid.ItemsSource = (from user in ceqacc.Login
-                                          select new
-                                          {
-                                              user.uid,
-                                              user.id,
-                                              user.name,
-                                              user.role
-                                          }).ToList();
+
+
+                var query = (from user in ceqacc.Login
+                             where user.role_id != 2
+                             select new
+                             {
+                                 user.uid,
+                                 user.name,
+                                 fullName = user.Admin.full_name,
+                                 userRole = user.Role.role_name
+
+                             }
+                             ).ToList();
+
+
+
+                myDataGrid.ItemsSource = query;
+
+
+                var query2 = (from user in ceqacc.Login
+                              where user.role_id == 2
+                              select new
+                              {
+                                  user.uid,
+                                  user.name,
+                                  fullName = user.Driver.last_name,
+                                  userRole = user.Role.role_name
+
+                              }
+                         ).ToList();
+
+
+
+                myDataGrid2.ItemsSource = query2;
+
             }
             catch
             {
                 MessageBox.Show("Сталась помилка в роботі із базою, спробуйте ще раз. ");
                 return;
             }
+            
         }
 
         private void myDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)

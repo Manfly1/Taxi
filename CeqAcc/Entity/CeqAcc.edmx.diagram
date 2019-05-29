@@ -4,20 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="44a47c5ed9df45b1b34e72aab9cbdd1d" Name="Diagram1">
-        <EntityTypeShape EntityType="TAXIModel.Admin" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TAXIModel.Area" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TAXIModel.Brand" Width="1.5" PointX="1.5" PointY="15.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TAXIModel.Car" Width="1.5" PointX="3.75" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TAXIModel.Discount_card" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TAXIModel.Driver" Width="1.5" PointX="6" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TAXIModel.Location" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+      <Diagram DiagramId="c2ca80fa1fbe4c5e86ad039294f3cfeb" Name="Diagram1">
+        <EntityTypeShape EntityType="TAXIModel.Admin" Width="1.5" PointX="6" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TAXIModel.Area" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TAXIModel.Brand" Width="1.5" PointX="1.5" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TAXIModel.Car" Width="1.5" PointX="3.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="TAXIModel.Discount_card" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TAXIModel.Driver" Width="1.5" PointX="6" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TAXIModel.Location" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TAXIModel.Login" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TAXIModel.Request" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TAXIModel.Service_application" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TAXIModel.Streeets" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="TAXIModel.Request" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TAXIModel.Role" Width="1.5" PointX="6" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TAXIModel.Service_application" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TAXIModel.Streeets" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TAXIModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TAXIModel.Tariffs" Width="1.5" PointX="3.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TAXIModel.Tariffs" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TAXIModel.Value_of_taximeter" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
         <AssociationConnector Association="TAXIModel.FK_Login_Admin" ManuallyRouted="false" />
         <AssociationConnector Association="TAXIModel.FK_Service_application_Admin1" ManuallyRouted="false" />
@@ -28,6 +29,7 @@
         <AssociationConnector Association="TAXIModel.FK_Driver_Car" ManuallyRouted="false" />
         <AssociationConnector Association="TAXIModel.FK_Request_Discount_card" ManuallyRouted="false" />
         <AssociationConnector Association="TAXIModel.FK_Login_Driver" ManuallyRouted="false" />
+        <AssociationConnector Association="TAXIModel.FK_Login_Role" ManuallyRouted="false" />
         <AssociationConnector Association="TAXIModel.FK_Request_Streeets" ManuallyRouted="false" />
         <AssociationConnector Association="TAXIModel.FK_Request_Streeets1" ManuallyRouted="false" />
         <AssociationConnector Association="TAXIModel.FK_Service_application_Request1" ManuallyRouted="false" />

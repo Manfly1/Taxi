@@ -77,7 +77,7 @@
           <Property Name="uid" Type="int" Nullable="false" />
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="50" />
-          <Property Name="role" Type="int" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Request">
@@ -94,6 +94,13 @@
           <Property Name="id_area_vys" Type="int" />
           <Property Name="number_card" Type="int" Nullable="false" />
           <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="role_name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Service application">
           <Key>
@@ -198,6 +205,18 @@
             </Principal>
             <Dependent Role="Login">
               <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Login_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Login" Type="Self.Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="Login">
+              <PropertyRef Name="role_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -319,6 +338,7 @@
           <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service application" EntityType="Self.Service application" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Streeets" EntityType="Self.Streeets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -342,6 +362,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Login_Driver" Association="Self.FK_Login_Driver">
             <End Role="Driver" EntitySet="Driver" />
+            <End Role="Login" EntitySet="Login" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Login_Role" Association="Self.FK_Login_Role">
+            <End Role="Role" EntitySet="Role" />
             <End Role="Login" EntitySet="Login" />
           </AssociationSet>
           <AssociationSet Name="FK_Request_Area" Association="Self.FK_Request_Area">
@@ -470,10 +494,11 @@
           <Property Name="uid" Type="Int32" Nullable="false" />
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="role" Type="Int32" Nullable="false" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Admin" Relationship="Self.FK_Login_Admin" FromRole="Login" ToRole="Admin" />
           <NavigationProperty Name="Driver" Relationship="Self.FK_Login_Driver" FromRole="Login" ToRole="Driver" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Login_Role" FromRole="Login" ToRole="Role" />
         </EntityType>
         <EntityType Name="Request">
           <Key>
@@ -495,6 +520,14 @@
           <NavigationProperty Name="Streeets" Relationship="Self.FK_Request_Streeets" FromRole="Request" ToRole="Streeets" />
           <NavigationProperty Name="Streeets1" Relationship="Self.FK_Request_Streeets1" FromRole="Request" ToRole="Streeets" />
           <NavigationProperty Name="Service_application" Relationship="Self.FK_Service_application_Request1" FromRole="Request" ToRole="Service_application" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Login" Relationship="Self.FK_Login_Role" FromRole="Role" ToRole="Login" />
         </EntityType>
         <EntityType Name="Service_application">
           <Key>
@@ -658,6 +691,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Login_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Login" Type="Self.Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="Login">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Request_Streeets">
           <End Role="Streeets" Type="Self.Streeets" Multiplicity="0..1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
@@ -728,6 +773,7 @@
           <EntitySet Name="Location" EntityType="Self.Location" />
           <EntitySet Name="Login" EntityType="Self.Login" />
           <EntitySet Name="Request" EntityType="Self.Request" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="Service_application" EntityType="Self.Service_application" />
           <EntitySet Name="Streeets" EntityType="Self.Streeets" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -767,6 +813,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Login_Driver" Association="Self.FK_Login_Driver">
             <End Role="Driver" EntitySet="Driver" />
+            <End Role="Login" EntitySet="Login" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Login_Role" Association="Self.FK_Login_Role">
+            <End Role="Role" EntitySet="Role" />
             <End Role="Login" EntitySet="Login" />
           </AssociationSet>
           <AssociationSet Name="FK_Request_Streeets" Association="Self.FK_Request_Streeets">
@@ -873,7 +923,7 @@
                 <ScalarProperty Name="uid" ColumnName="uid" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -891,6 +941,14 @@
                 <ScalarProperty Name="id_area_vys" ColumnName="id_area_vys" />
                 <ScalarProperty Name="number_card" ColumnName="number_card" />
                 <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="TAXIModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

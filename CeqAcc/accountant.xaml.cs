@@ -51,7 +51,7 @@ namespace CeqAcc
             var userInfo = ceqacc.Login.Where(x => x.name == login).First();
             this.name = "Повне ім'я: " + userInfo.password;
 
-            this.role = "Роль: " + userInfo.role;
+            this.role = "Роль: " + userInfo.role_id;
             
             
 

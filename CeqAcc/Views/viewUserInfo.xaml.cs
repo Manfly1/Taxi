@@ -66,7 +66,7 @@ namespace CeqAcc.Views
             ceqacc = new TAXIEntities();
 
 
-            rolesBox.ItemsSource = (from r in ceqacc.Login select r.role).ToList();
+            rolesBox.ItemsSource = (from r in ceqacc.Login select r.role_id).ToList();
           
 
 
